@@ -1,8 +1,9 @@
 import { db } from "./db";
+import { initDb } from "./db/schema";
 
-db.exec(`
-DELETE FROM schedules;
-`);
+initDb();
+
+db.exec(`DELETE FROM schedules;`);
 
 const stmt = db.prepare(`
 INSERT INTO schedules (
